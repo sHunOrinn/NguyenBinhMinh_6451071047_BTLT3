@@ -1,34 +1,24 @@
 import 'package:flutter/material.dart';
 
-class Gesturebox extends StatefulWidget {
+class Gesturebox extends StatelessWidget {
   const Gesturebox({super.key});
-
-  @override
-  State<Gesturebox> createState() => _GestureboxState();
-}
-
-class _GestureboxState extends State<Gesturebox> {
-  String _gesture = '';
-
-  void _updateGesture(String gesture) {
-    setState(() {
-      _gesture = gesture;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _updateGesture('You tapped the box!'),
+      onTap: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('You tapped the box!')),
+        );
+      },
       child: Container(
         width: 200,
         height: 200,
         color: Colors.blueAccent,
         alignment: Alignment.center,
-        child: Text(
-          _gesture,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
-          textAlign: TextAlign.center,
+        child: const Text(
+          'Tap the box\nNguyễn Bình Minh-6451071047',
+          style: TextStyle(color: Colors.white, fontSize: 16),
         ),
       ),
     );

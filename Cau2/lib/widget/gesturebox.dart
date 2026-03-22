@@ -23,6 +23,7 @@ class _GestureboxState extends State<Gesturebox> {
       child: Container(
         width: 200,
         height: 200,
+        child: Center(child: Text('Nguyễn Bình Minh - 6451071047')) ,
         color: _isBlue ? Colors.blue : Colors.red,
       ),
     );

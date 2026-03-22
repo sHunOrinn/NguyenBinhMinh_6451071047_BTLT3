@@ -8,21 +8,30 @@ class Gesturebox extends StatefulWidget {
 }
 
 class _GestureboxState extends State<Gesturebox> {
-  String press = 'Press and hold me';
-
-  void _press(String _press) {
-    setState(() {
-      press = _press;
-    });
+  void _showLongPressSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Long press detected'),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () => _press('Long press detected'),
-      child: Container(
-        width: 200,
-        height: 200,
+      onLongPress: _showLongPressSnackBar,
+      child: Card(
+        elevation: 4,
+        child: SizedBox(
+          width: 220,
+          height: 120,
+          child: Center(
+            child: Text(
+              'Press and hold me\nNguyễn Bình Minh - 6451071047',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
+        ),
       ),
     );
   }
